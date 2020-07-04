@@ -77,14 +77,15 @@ def edit_post(post_id):
 def delete_post(post_id):
 
     """ Removes the relavent data from mongo using the id of the post"""
-    
+
     mongo.db.blogs.delete_one({'_id': ObjectId(post_id)})
     return redirect(url_for('home'))
 
 
-@app.route("/read") 
-def read():
-    return render_template("read.html", page_title="read")    
+@app.route('/read_post/<post_id>') 
+def read_post(post_id):
+    read = mongo.db.blogs.find_one({'_id': ObjectId(post_id)})
+    return render_template("read.html", page_title="read", display=read)    
 
 
 if __name__ == "__main__":

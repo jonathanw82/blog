@@ -11,11 +11,11 @@
             <div class="col-sm-3">
                 <h1>{{ b.name }}</h1>
                 <h3>{{ b.title }}</h3>
-                <p>{{ b.blog }}</p>
                 <span>Date Created: {{ b.created }}</span>
                 <span>Date Updated: {{ b.updated }}</span>
-                <a class="btn btn-warning form-button" href="{{url_for ('edit_post', post_id=b._id)}}">Edit Post</a>
-                <a class="btn btn-warning form-button" href="{{url_for ('delete_post', post_id=b._id)}}">Delete Post</a>
+                <a class="btn btn-warning form-button" href="{{ url_for ('edit_post', post_id=b._id) }}">Edit Post</a>
+                <a class="btn btn-warning form-button" href="{{ url_for ('delete_post', post_id=b._id) }}">Delete Post</a>
+                <a class="btn btn-primary form-button" href="{{ url_for ('read_post', post_id=b._id)}}">Read</a>
             </div>
             {% endfor %}
         </div>
