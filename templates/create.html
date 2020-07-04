@@ -1,0 +1,22 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+{{ page_title }}
+{%endblock%}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <form action="{{url_for('create')}}" method="POST">
+                Blog Name: <input class="form-control" type="text" name="blog_name" required>
+                Title: <input class="form-control" type="text" name="blog_title" required>
+                Blog: <textarea  class="form-control" name="blog_info" rows="3" maxlength="300" placeholder="Limit 300 characters" required></textarea>
+                Image: <input type="text" class="form-control" name="image_url" id="image_url" required>
+                <button type="submit" class="btn btn-primary form-button">Create</button>
+                <a class="btn btn-primary form-button" href="{{url_for ('home')}}">Cancel</a>
+            </form>
+        </div>    
+    </div>
+</div>
+{% endblock%}
